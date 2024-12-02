@@ -1,0 +1,113 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:import/recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended",
+		"plugin:tailwindcss/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"react-hooks",
+		"jsx-a11y",
+		"@typescript-eslint",
+		"simple-import-sort",
+		"import",
+		"prettier",
+		"tailwindcss"
+	],
+	"overrides": [
+		{
+			"extends": ["plugin:testing-library/react"],
+			"files": [
+				"**/__tests__/**/*.[jt]s?(x)",
+				"**/?(*.)+(spec|test).[jt]s?(x)"
+			],
+			"plugins": ["testing-library"],
+			"rules": {
+				"testing-library/await-async-query": "error",
+				"testing-library/await-async-utils": "error",
+				"testing-library/no-await-sync-query": "error",
+				"testing-library/no-container": "error",
+				"testing-library/no-debugging-utils": "error",
+				"testing-library/no-dom-import": ["error", "react"],
+				"testing-library/no-node-access": "error",
+				"testing-library/no-promise-in-fire-event": "error",
+				"testing-library/no-render-in-setup": "error",
+				"testing-library/no-unnecessary-act": "error",
+				"testing-library/no-wait-for-empty-callback": "error",
+				"testing-library/no-wait-for-multiple-assertions": "error",
+				"testing-library/no-wait-for-side-effects": "error",
+				"testing-library/no-wait-for-snapshot": "error",
+				"testing-library/prefer-find-by": "error",
+				"testing-library/prefer-presence-queries": "error",
+				"testing-library/prefer-query-by-disappearance": "error",
+				"testing-library/prefer-screen-queries": "error",
+				"testing-library/render-result-naming-convention": "error"
+			}
+		}
+	],
+	"root": true,
+	"rules": {
+		"import/first": "error",
+		"import/newline-after-import": "error",
+		"import/no-duplicates": "error",
+		"jsx-a11y/alt-text": "warn",
+		"jsx-a11y/anchor-has-content": "warn",
+		"jsx-a11y/anchor-is-valid": [
+			"warn",
+			{
+				"aspects": ["noHref", "invalidHref"]
+			}
+		],
+		"jsx-a11y/aria-activedescendant-has-tabindex": "warn",
+		"jsx-a11y/aria-props": "warn",
+		"jsx-a11y/aria-proptypes": "warn",
+		"jsx-a11y/aria-role": ["warn", { "ignoreNonDOM": true }],
+		"jsx-a11y/aria-unsupported-elements": "warn",
+		"jsx-a11y/heading-has-content": "warn",
+		"jsx-a11y/iframe-has-title": "warn",
+		"jsx-a11y/img-redundant-alt": "warn",
+		"jsx-a11y/no-access-key": "warn",
+		"jsx-a11y/no-distracting-elements": "warn",
+		"jsx-a11y/no-redundant-roles": "warn",
+		"jsx-a11y/role-has-required-aria-props": "warn",
+		"jsx-a11y/role-supports-aria-props": "warn",
+		"jsx-a11y/scope": "warn",
+		"react-hooks/rules-of-hooks": "error",
+		"react/prop-types": "off",
+		"react/react-in-jsx-scope": "off",
+		"simple-import-sort/exports": "error",
+		"simple-import-sort/imports": "error",
+		"tailwindcss/no-custom-classname": "off"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		},
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true
+			}
+		}
+	}
+}

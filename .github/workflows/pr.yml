@@ -1,0 +1,58 @@
+name: PR
+
+on:
+  pull_request:
+    branches:
+      - 'staging'
+    types:
+      - 'edited'
+      - 'opened'
+      - 'synchronize'
+
+env:
+  VITE_OWM_API_KEY: ${{ secrets.VITE_OWM_API_KEY }}
+
+jobs:
+  review_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 16
+
+      - run: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+      - run: yarn run lint
+      - run: yarn run type-check
+      - run: yarn test
+        env:
+          NODE_ENV: test
+
+      - run: yarn build
+        env:
+          NODE_ENV: production
+
+      - uses: amondnet/vercel-action@v20
+        with:
+          github-comment: true
+          github-token: ${{ github.token }}
+          vercel-args: '--prod'
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+
+      - uses: strumwolf/delete-deployment-environment@v2
+        if: ${{ github.event.action == 'closed' }}
+        with:
+          environment: pr-${{ github.event.number }}
+          token: ${{ github.token }}

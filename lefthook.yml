@@ -1,0 +1,17 @@
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+pre-commit:
+  # parallel: true
+  commands:
+    eslint:
+      exclude: 'main.js|preview.tsx'
+      files: git diff --name-only staging
+      glob: '*.{js,ts,jsx,tsx}'
+      run: yarn lint {staged_files}
+    prettier:
+      files: git diff --name-only staging
+      glob: '*.{js,json,md,mdx,ts,tsx,yaml,yml}'
+      run: yarn format {staged_files}
+    vitest:
+      files: git diff --name-only staging
+      glob: '*.test.{js,ts,tsx}'
+      run: yarn test {staged_files}
