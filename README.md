@@ -1,5 +1,5 @@
 # Weather App    
-
+ 
 This repo is built with [Open Weather Map](https://openweathermap.org/), React, Tailwind, TypeScript, & Vite.
 
 ## Environment Variables
