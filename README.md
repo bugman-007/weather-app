@@ -16,7 +16,7 @@ Clone the project
 
 ```bash
   git clone https://github.com/gungho0619/weather-app.git
-```
+``` 
 
 Go to the project directory
 
