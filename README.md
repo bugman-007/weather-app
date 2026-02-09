@@ -7,7 +7,7 @@ This repo is built with [Open Weather Map](https://openweathermap.org/), React, 
 To run this project, you will need to add the following environment variables to your .env file
 
 ```
-VITE_OWM_API_KEY=abc1234 
+VITE_OWM_API_KEY=abc1234
 ```
 
 ## Run Locally  
