@@ -2,7 +2,7 @@
      
 This repo is built with [Open Weather Map](https://openweathermap.org/), React, Tailwind, TypeScript, & Vite.
 
-## Environment Variables
+## Environment Variables 
 
 To run this project, you will need to add the following environment variables to your .env file
 
