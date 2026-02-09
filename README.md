@@ -12,7 +12,7 @@ VITE_OWM_API_KEY=abc1234
 
 ## Run Locally  
 
-Clone the project
+Clone the project 
 
 ```bash
   git clone https://github.com/gungho0619/weather-app.git
