@@ -8,9 +8,9 @@ To run this project, you will need to add the following environment variables to
 
 ```
 VITE_OWM_API_KEY=abc1234
-``` 
+```  
 
-## Run Locally  
+## Run Locally   
 
 Clone the project 
 
